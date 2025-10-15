@@ -478,13 +478,22 @@
     <section class="team-hero">
         <div class="team-hero-content">
             <h1>Meet Our Team</h1>
-            <h2>Three minds. One vision. Infinite creativity.</h2>
+            <h2>Four minds. One vision. Infinite creativity.</h2>
         </div>
     </section>
 
     <!-- Bubbles Section -->
     <section class="bubbles-container">
         <div class="bubbles-grid">
+            
+            <!-- David Bubble -->
+            <div class="bubble" data-member="david">
+                <div class="bubble-circle">
+                    <div class="bubble-initial">D</div>
+                    <div class="bubble-name">David</div>
+                </div>
+            </div>
+
             <!-- Justice Bubble -->
             <div class="bubble" data-member="justice">
                 <div class="bubble-circle">
@@ -515,6 +524,18 @@
     <div class="overlay" id="overlay"></div>
 
     <!-- Info Cards (Hidden by default) -->
+    <div class="info-card" id="info-david">
+        <h3>David</h3>
+        <div class="role">Lead developer & founder</div>
+        <div class="skills-title">Skills & Expertise</div>
+        <div class="skills-list">
+            <span class="skill-tag">HTML</span>
+            <span class="skill-tag">CSS</span>
+            <span class="skill-tag">JavaScript</span>
+        </div>
+        <button class="close-btn" onclick="closeCard()">Close</button>
+    </div>
+
     <div class="info-card" id="info-justice">
         <h3>Justice</h3>
         <div class="role">Chief Vibe Coder</div>
