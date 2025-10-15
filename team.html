@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team - newCarScout</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro', sans-serif;
+            background-color: #050124;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Navigation - Exact copy from landing page */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: rgba(5, 1, 36, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(175, 175, 250, 0.2);
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            font-family: 'Orbitron', sans-serif;
+            color: #04d9ff;
+            letter-spacing: 1px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #afaffa;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #04d9ff;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #04d9ff;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        /* Team Page Styles */
+        .team-hero {
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 150px 50px 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-hero::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(4, 217, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -300px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: pulse 6s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: translateX(-50%) scale(1);
+                opacity: 0.3;
+            }
+            50% {
+                transform: translateX(-50%) scale(1.2);
+                opacity: 0.6;
+            }
+        }
+
+        .team-hero-content {
+            text-align: center;
+            z-index: 1;
+        }
+
+        .team-hero h1 {
+            font-size: 64px;
+            font-weight: 900;
+            font-family: 'Orbitron', sans-serif;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #04d9ff 0%, #afaffa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: slideDown 1s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .team-hero h2 {
+            font-size: 24px;
+            color: #afaffa;
+            font-weight: 300;
+            font-style: italic;
+            animation: fadeIn 1s ease-out 0.3s both;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Bubbles Section */
+        .bubbles-container {
+            padding: 80px 50px 150px;
+            position: relative;
+            min-height: 70vh;
+        }
+
+        /* Particle background effect */
+        .bubbles-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(175, 175, 250, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(4, 217, 255, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .bubbles-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 80px;
+            flex-wrap: wrap;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Individual bubble */
+        .bubble {
+            width: 280px;
+            height: 280px;
+            position: relative;
+            cursor: pointer;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .bubble:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .bubble:nth-child(2) {
+            animation-delay: 1s;
+        }
+
+        .bubble:nth-child(3) {
+            animation-delay: 2s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+        }
+
+        /* Bubble circle */
+        .bubble-circle {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(4, 217, 255, 0.1) 0%, rgba(175, 175, 250, 0.1) 100%);
+            border: 2px solid rgba(4, 217, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            box-shadow: 
+                0 0 40px rgba(4, 217, 255, 0.2),
+                inset 0 0 40px rgba(4, 217, 255, 0.05);
+        }
+
+        .bubble:hover .bubble-circle {
+            transform: rotateY(180deg) scale(1.05);
+            border-color: #04d9ff;
+            box-shadow: 
+                0 0 60px rgba(4, 217, 255, 0.5),
+                inset 0 0 60px rgba(4, 217, 255, 0.1);
+        }
+
+        /* Glow ring effect on hover */
+        .bubble-circle::before {
+            content: '';
+            position: absolute;
+            width: 110%;
+            height: 110%;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(4, 217, 255, 0.3) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: -1;
+        }
+
+        .bubble:hover .bubble-circle::before {
+            opacity: 1;
+            animation: ringPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes ringPulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        /* Initial state - shows initial */
+        .bubble-initial {
+            font-size: 120px;
+            font-weight: 900;
+            font-family: 'Orbitron', sans-serif;
+            background: linear-gradient(135deg, #04d9ff 0%, #afaffa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Flipped state - shows name */
+        .bubble-name {
+            position: absolute;
+            font-size: 32px;
+            font-weight: 700;
+            font-family: 'Orbitron', sans-serif;
+            color: #04d9ff;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            transform: rotateY(180deg);
+        }
+
+        .bubble:hover .bubble-initial {
+            opacity: 0;
+        }
+
+        .bubble:hover .bubble-name {
+            opacity: 1;
+        }
+
+        /* Info Card */
+        .info-card {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            background: rgba(5, 1, 36, 0.98);
+            border: 2px solid #04d9ff;
+            border-radius: 30px;
+            padding: 50px;
+            max-width: 600px;
+            width: 90%;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            z-index: 2000;
+            box-shadow: 
+                0 0 80px rgba(4, 217, 255, 0.4),
+                inset 0 0 40px rgba(4, 217, 255, 0.05);
+        }
+
+        .info-card.active {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+            pointer-events: auto;
+        }
+
+        .info-card h3 {
+            font-size: 42px;
+            font-family: 'Orbitron', sans-serif;
+            background: linear-gradient(135deg, #04d9ff 0%, #afaffa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .info-card .role {
+            font-size: 24px;
+            color: #04d9ff;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .info-card .skills-title {
+            font-size: 18px;
+            color: #afaffa;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .skill-tag {
+            background: rgba(4, 217, 255, 0.1);
+            border: 1px solid rgba(4, 217, 255, 0.3);
+            color: #04d9ff;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .close-btn {
+            background: #04d9ff;
+            color: #050124;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .close-btn:hover {
+            background: #03b8db;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(4, 217, 255, 0.4);
+        }
+
+        /* Overlay */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 1, 36, 0.9);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+            z-index: 1999;
+        }
+
+        .overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 20px;
+            }
+
+            .nav-links {
+                gap: 20px;
+            }
+
+            .team-hero h1 {
+                font-size: 42px;
+            }
+
+            .team-hero h2 {
+                font-size: 18px;
+            }
+
+            .bubbles-grid {
+                gap: 40px;
+            }
+
+            .bubble {
+                width: 200px;
+                height: 200px;
+            }
+
+            .bubble-initial {
+                font-size: 80px;
+            }
+
+            .bubble-name {
+                font-size: 24px;
+            }
+
+            .info-card {
+                padding: 30px;
+            }
+
+            .info-card h3 {
+                font-size: 32px;
+            }
+
+            .info-card .role {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation - Exact copy from landing page -->
+    <nav>
+        <div class="logo">newCarScout</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="team.html" class="active">Team</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Team Hero Section -->
+    <section class="team-hero">
+        <div class="team-hero-content">
+            <h1>Meet Our Team</h1>
+            <h2>Three minds. One vision. Infinite creativity.</h2>
+        </div>
+    </section>
+
+    <!-- Bubbles Section -->
+    <section class="bubbles-container">
+        <div class="bubbles-grid">
+            <!-- Justice Bubble -->
+            <div class="bubble" data-member="justice">
+                <div class="bubble-circle">
+                    <div class="bubble-initial">J</div>
+                    <div class="bubble-name">Justice</div>
+                </div>
+            </div>
+
+            <!-- Nichole Bubble -->
+            <div class="bubble" data-member="nichole">
+                <div class="bubble-circle">
+                    <div class="bubble-initial">N</div>
+                    <div class="bubble-name">Nichole</div>
+                </div>
+            </div>
+
+            <!-- Kamsy Bubble -->
+            <div class="bubble" data-member="kamsy">
+                <div class="bubble-circle">
+                    <div class="bubble-initial">K</div>
+                    <div class="bubble-name">Kamsy</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Info Cards (Hidden by default) -->
+    <div class="info-card" id="info-justice">
+        <h3>Justice</h3>
+        <div class="role">Chief Vibe Coder</div>
+        <div class="skills-title">Skills & Expertise</div>
+        <div class="skills-list">
+            <span class="skill-tag">HTML</span>
+            <span class="skill-tag">CSS</span>
+            <span class="skill-tag">JavaScript</span>
+        </div>
+        <button class="close-btn" onclick="closeCard()">Close</button>
+    </div>
+
+    <div class="info-card" id="info-nichole">
+        <h3>Nichole</h3>
+        <div class="role">Software Engineer</div>
+        <div class="skills-title">Skills & Expertise</div>
+        <div class="skills-list">
+            <span class="skill-tag">Rust</span>
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">React</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">CSS</span>
+            <span class="skill-tag">HTML</span>
+        </div>
+        <button class="close-btn" onclick="closeCard()">Close</button>
+    </div>
+
+    <div class="info-card" id="info-kamsy">
+        <h3>Kamsy</h3>
+        <div class="role">Chief Creative Director</div>
+        <div class="skills-title">Skills & Expertise</div>
+        <div class="skills-list">
+            <span class="skill-tag">Animations</span>
+            <span class="skill-tag">CSS</span>
+            <span class="skill-tag">HTML</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">Photoshop</span>
+            <span class="skill-tag">Premiere Pro</span>
+        </div>
+        <button class="close-btn" onclick="closeCard()">Close</button>
+    </div>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(5, 1, 36, 0.98)';
+                nav.style.boxShadow = '0 5px 20px rgba(4, 217, 255, 0.1)';
+            } else {
+                nav.style.background = 'rgba(5, 1, 36, 0.95)';
+                nav.style.boxShadow = 'none';
+            }
+        });
+
+        // Bubble click functionality
+        const bubbles = document.querySelectorAll('.bubble');
+        const overlay = document.getElementById('overlay');
+
+        bubbles.forEach(bubble => {
+            bubble.addEventListener('click', function() {
+                const member = this.getAttribute('data-member');
+                const infoCard = document.getElementById('info-' + member);
+                
+                // Show overlay and info card
+                overlay.classList.add('active');
+                infoCard.classList.add('active');
+            });
+        });
+
+        // Close card function
+        function closeCard() {
+            const activeCard = document.querySelector('.info-card.active');
+            if (activeCard) {
+                activeCard.classList.remove('active');
+            }
+            overlay.classList.remove('active');
+        }
+
+        // Close on overlay click
+        overlay.addEventListener('click', closeCard);
+
+        // Close on ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeCard();
+            }
+        });
+    </script>
+</body>
+
+</html>
