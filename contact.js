@@ -53,18 +53,18 @@
         });
 
         // Smooth Scroll for Nav Links
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+        // document.querySelectorAll('nav a').forEach(anchor => {
+        //     anchor.addEventListener('click', function(e) {
+        //         e.preventDefault();
+        //         const target = document.querySelector(this.getAttribute('href'));
+        //         if (target) {
+        //             target.scrollIntoView({
+        //                 behavior: 'smooth',
+        //                 block: 'start'
+        //             });
+        //         }
+        //     });
+        // });
 
         // Parallax effect on background orbs
         document.addEventListener('mousemove', function(e) {
