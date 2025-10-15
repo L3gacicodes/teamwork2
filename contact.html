@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Car Scout Web Development</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./contact.css">
+
+</head>
+<body>
+    <!-- Background Orbs -->
+    <div class="bg-orb orb1"></div>
+    <div class="bg-orb orb2"></div>
+    <div class="bg-orb orb3"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">NEW CAR SCOUT</div>
+        <ul>
+            <li><a href="./LandingPage.html">Home</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="./contact.html" class="active">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <div class="hero">
+            <h1>Let's Build Something Extraordinary.</h1>
+            <p>Get in touch with Car Scout Web Development — we create, code, and craft experiences that move ideas forward.</p>
+        </div>
+
+        <!-- Contact Form & Team Section -->
+        <div class="contact-container">
+            <!-- Contact Form -->
+            <div class="contact-form-wrapper" id="contact">
+                <!-- Floating Tech Logos -->
+                <div class="floating-logos">
+                    <i class="logo-icon fab fa-html5"></i>
+                    <i class="logo-icon fab fa-css3-alt"></i>
+                    <i class="logo-icon fab fa-js"></i>
+                    <i class="logo-icon fab fa-react"></i>
+                    <i class="logo-icon fab fa-node"></i>
+                    <i class="logo-icon fab fa-python"></i>
+                </div>
+
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+
+                <p class="tagline">We build custom digital experiences for forward-thinking brands. Reach out and let's create something extraordinary.</p>
+            </div>
+
+            <!-- Team Section -->
+            <div class="team-section" id="team">
+                <h2 class="team-header">Meet Our Team</h2>
+                <div class="team-cards">
+                    <div class="team-card">
+                        <h3>Justice</h3>
+                        <p>Lead Developer & Founder</p>
+                    </div>
+                    <div class="team-card">
+                        <h3>Nicole</h3>
+                        <p>UI/UX Designer</p>
+                    </div>
+                    <div class="team-card">
+                        <h3>Kamsy</h3>
+                        <p>Full Stack Engineer</p>
+                    </div>
+               
+                </div>
+            </div>
+        </div>
+
+        <!-- Social Links -->
+        <div class="social-links">
+            <a href="#" class="social-icon" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="#" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="#" class="social-icon" title="Twitter"><i class="fab fa-twitter"></i></a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Car Scout Web Development. Crafting digital excellence.</p>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script src="contact.js">
+      
+    </script>
+</body>
+</html>
