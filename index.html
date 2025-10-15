@@ -60,7 +60,8 @@
             position: relative;
         }
         
-        .nav-links a:hover {
+        .nav-links a:hover,
+        .nav-links a.active {
             color: #04d9ff;
         }
         
@@ -75,7 +76,8 @@
             transition: width 0.3s ease;
         }
         
-        .nav-links a:hover::after {
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
             width: 100%;
         }
         /* Hero Section */
@@ -325,7 +327,7 @@
     <nav>
         <div class="logo">newCarScout</div>
         <ul class="nav-links">
-            <li><a href="./index.html">Home</a></li>
+            <li><a href="./index.html" class="active">Home</a></li>
             <li><a href="./team.html">Team</a></li>
             <li><a href="./contact.html">Contact</a></li>
         </ul>
@@ -338,8 +340,8 @@
             <h2>Where Innovation Meets Engineering</h2>
             <p>We transform visionary ideas into powerful software solutions that drive businesses forward. Experience the future of technology with cutting-edge development and unparalleled expertise.</p>
             <div class="cta-buttons">
-                <a href="#contact" class="btn btn-primary">Start Your Project</a>
-                <a href="#team" class="btn btn-secondary">Meet Our Team</a>
+                <a href="./contact.html" class="btn btn-primary">Start Your Project</a>
+                <a href="./team.html" class="btn btn-secondary">Meet Our Team</a>
             </div>
         </div>
     </section>
